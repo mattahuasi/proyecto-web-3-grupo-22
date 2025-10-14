@@ -1,0 +1,20 @@
+{% extends 'base_admin.html' %}
+{% block title %}Confirmar Devolución{% endblock %}
+{% block content %}
+  <div class="container">
+    <h2>¿Confirmas la Devolución?</h2>
+
+    <ul class="list-group mb-3">
+      <li class="list-group-item"><strong>Libro:</strong> {{ prestamo.libro.titulo }}</li>
+      <li class="list-group-item"><strong>Socio:</strong> {{ prestamo.socio.user.first_name }}</li>
+      <li class="list-group-item"><strong>Fecha de Préstamo:</strong> {{ prestamo.fecha_pretamo }}</li>
+      <li class="list-group-item"><strong>Fecha Límite:</strong> {{ prestamo.fecha_limite }}</li>
+    </ul>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Sí, devolver hoy</button>
+      <a href="{% url 'detalle_prestamo' prestamo.id %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+{% endblock %}

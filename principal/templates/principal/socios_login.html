@@ -1,0 +1,33 @@
+{% extends 'base_public.html' %} {% block title %}Bookify | Biblioteca
+digital{%endblock %} {% block content %}
+<section class="py-5 d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow border-0 rounded-4">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Iniciar sesión</h2>
+            <form method="post" novalidate>
+              {% csrf_token %} {{ form.as_p }}
+
+              <button class="btn btn-primary w-100" type="submit">
+                Ingresar
+              </button>
+
+              <div class="text-center mt-4">
+                ¿No tienes una cuenta?
+                <a
+                  class="link-offset-2 link-underline link-underline-opacity-0"
+                  href="{% url 'socios_registro' %}"
+                >
+                  Crear cuenta
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
